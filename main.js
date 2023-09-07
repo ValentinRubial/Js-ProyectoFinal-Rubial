@@ -1,6 +1,6 @@
 // librerias: SeewtAlert2 y Semantic UI
 
-// Arrow functio
+// Arrow function
 // evento onclick
 const mostrarInfo = () => {
    const { value: nombre } = document.getElementById("nombre");
@@ -23,6 +23,7 @@ const mostrarInfo = () => {
 
 
 // condicionales if + else if.
+// objetos
 // Dom
 const altitudConsejos = [
    {
@@ -186,7 +187,6 @@ document.getElementById("botonGuardar").addEventListener("click", guardarDatosEn
 
 //fetch
 //API externa
-// Función para obtener datos de usuarios
 const obtenerUsuarios = () => {
    const url = 'https://jsonplaceholder.typicode.com/users';
 
@@ -206,14 +206,11 @@ const obtenerUsuarios = () => {
       });
 };
 
-// Uso de la función para obtener usuarios
 obtenerUsuarios()
    .then(usuarios => {
-      // Trabaja con los datos de usuarios obtenidos
       console.log('Usuarios obtenidos:', usuarios);
    })
    .catch(error => {
-      // Maneja errores en la solicitud o el procesamiento de datos
       console.error('Error al obtener usuarios:', error);
    });
 
