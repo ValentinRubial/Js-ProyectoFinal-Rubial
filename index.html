@@ -36,6 +36,20 @@
          <button class="ui button primary" id="botonGuardar" type="button" onclick="mostrarInfo()" onclick="guardarDatosEnLocalStorage()">Enviar</button>
       </form>
    </div>
+   <br>
+   <div id="datosGuardados">
+     <u><h3>Ultima Persona ingresada:</h3></u>
+      <p>NOMBRE: <span id="nombreGuardado"></span></p>
+      <p>EDAD: <span id="edadGuardada"></span></p>
+      <p>GENERO: <span id="generoGuardado"></span></p>
+      <p>PAIS: <span id="paisGuardado"></span></p>
+   </div>
+   <br>
+   <div id="datosUsuarios">
+      <u><h3>Nuestros ayudantes:</h3></u>
+      <p id="nombreUsuario"></p>
+      <p id="emailUsuario"></p>
+   </div>
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>

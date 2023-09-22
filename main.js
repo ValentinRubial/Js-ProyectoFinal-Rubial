@@ -177,13 +177,35 @@ const guardarDatosEnLocalStorage = () => {
       nombre,
       edad,
       genero,
-      pais
+      pais,
    };
 
    localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario));
 };
 
 document.getElementById("botonGuardar").addEventListener("click", guardarDatosEnLocalStorage);
+const mostrarDatosGuardados = () => {
+   const nombreGuardadoElement = document.getElementById("nombreGuardado");
+   const edadGuardadaElement = document.getElementById("edadGuardada");
+   const generoGuardadoElement = document.getElementById("generoGuardado");
+   const paisGuardadoElement = document.getElementById("paisGuardado");
+
+   // Obtén los datos del LocalStorage
+   const datosUsuarioJSON = localStorage.getItem("datosUsuario");
+   if (datosUsuarioJSON) {
+      const datosUsuario = JSON.parse(datosUsuarioJSON);
+
+      // Actualiza los elementos en el div
+      nombreGuardadoElement.textContent = datosUsuario.nombre;
+      edadGuardadaElement.textContent = datosUsuario.edad;
+      generoGuardadoElement.textContent = datosUsuario.genero;
+      paisGuardadoElement.textContent = datosUsuario.pais;
+   }
+};
+
+// Llama a esta función para mostrar los datos almacenados al cargar la página
+mostrarDatosGuardados();
+
 
 //fetch
 //API externa
@@ -208,11 +230,26 @@ const obtenerUsuarios = () => {
 
 obtenerUsuarios()
    .then(usuarios => {
+      
+      const datosUsuariosDiv = document.getElementById('datosUsuarios');
+
+      
+      usuarios.forEach((usuario, indice) => {
+         
+         const usuarioInfo = `Aydunte ${indice + 1}: NOMBRE - ${usuario.name}, EMAIL - ${usuario.email}`;
+
+         const usuarioParrafo = document.createElement('p');
+         usuarioParrafo.textContent = usuarioInfo;
+
+         datosUsuariosDiv.appendChild(usuarioParrafo);
+      });
+
       console.log('Usuarios obtenidos:', usuarios);
    })
    .catch(error => {
       console.error('Error al obtener usuarios:', error);
    });
+
 
 
 
